@@ -1,0 +1,408 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 900">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+    <stop offset="0%" stop-color="#0a0e27"/>
+    <stop offset="100%" stop-color="#0f1535"/>
+  </linearGradient>
+  <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+    <stop offset="0%" stop-color="#60a5fa"/>
+    <stop offset="50%" stop-color="#a78bfa"/>
+    <stop offset="100%" stop-color="#60a5fa"/>
+  </linearGradient>
+  <linearGradient id="xionGrad" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+    <stop offset="0%" stop-color="#1e3a8a" stop-opacity="0.75"/>
+    <stop offset="100%" stop-color="#2e1065" stop-opacity="0.75"/>
+  </linearGradient>
+  <linearGradient id="resultGrad" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+    <stop offset="0%" stop-color="#052e16" stop-opacity="0.9"/>
+    <stop offset="100%" stop-color="#031a0e" stop-opacity="0.9"/>
+  </linearGradient>
+  <linearGradient id="statGrad" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+    <stop offset="0%" stop-color="#1e3a8a" stop-opacity="0.6"/>
+    <stop offset="100%" stop-color="#2e1065" stop-opacity="0.6"/>
+  </linearGradient>
+
+  <filter id="glowBlue" x="-40%" y="-40%" width="180%" height="180%">
+    <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#60a5fa" flood-opacity="0.5"/>
+  </filter>
+  <filter id="glowPink" x="-40%" y="-40%" width="180%" height="180%">
+    <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#f472b6" flood-opacity="0.6"/>
+  </filter>
+  <filter id="glowGreen" x="-40%" y="-40%" width="180%" height="180%">
+    <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#34d399" flood-opacity="0.5"/>
+  </filter>
+  <filter id="glowXion" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="0" stdDeviation="18" flood-color="#60a5fa" flood-opacity="0.35"/>
+  </filter>
+
+  <marker id="arrBlue" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+    <polygon points="0 0, 7 3, 0 6" fill="#60a5fa" opacity="0.7"/>
+  </marker>
+  <marker id="arrGreen" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+    <polygon points="0 0, 7 3, 0 6" fill="#34d399" opacity="0.7"/>
+  </marker>
+  <marker id="arrPink" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+    <polygon points="0 0, 7 3, 0 6" fill="#f472b6" opacity="0.7"/>
+  </marker>
+</defs>
+
+<style>
+  text { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+
+  @keyframes xionPulse {
+    0%, 100% { opacity: 0.85; }
+    50% { opacity: 1; }
+  }
+  @keyframes cardPulse {
+    0%, 100% { opacity: 0.88; }
+    50% { opacity: 1; }
+  }
+  @keyframes titleShimmer {
+    0% { opacity: 0.85; }
+    50% { opacity: 1; }
+    100% { opacity: 0.85; }
+  }
+  @keyframes badgeGlow {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+  }
+
+  .xion-outer { animation: xionPulse 3s ease-in-out infinite; }
+  .problem-card { animation: cardPulse 4s ease-in-out infinite; }
+  .result-card { animation: cardPulse 4s ease-in-out infinite; }
+  .title-text { animation: titleShimmer 4s ease-in-out infinite; }
+  .badge { animation: badgeGlow 2.5s ease-in-out infinite; }
+</style>
+
+<!-- BACKGROUND -->
+<rect width="1100" height="900" fill="url(#bg)"/>
+
+<!-- Subtle grid -->
+<g stroke="#1e293b" stroke-width="0.4" opacity="0.35">
+  <line x1="0" y1="300" x2="1100" y2="300"/>
+  <line x1="0" y1="465" x2="1100" y2="465"/>
+  <line x1="0" y1="555" x2="1100" y2="555"/>
+  <line x1="275" y1="0" x2="275" y2="900"/>
+  <line x1="550" y1="0" x2="550" y2="900"/>
+  <line x1="825" y1="0" x2="825" y2="900"/>
+</g>
+
+<!-- ===== TITLE ===== -->
+<text x="550" y="50" text-anchor="middle" font-size="40" font-weight="800"
+  fill="url(#titleGrad)" filter="url(#glowBlue)" class="title-text">VERIFY ANYTHING</text>
+<text x="550" y="74" text-anchor="middle" font-size="12.5" fill="#94a3b8" letter-spacing="2">
+  XION · Trust Infrastructure for the Internet · Age of Proofs
+</text>
+<rect x="380" y="84" width="340" height="1.5" rx="1" fill="url(#titleGrad)" opacity="0.5"/>
+
+<!-- ===== SECTION LABEL: PROBLEM ===== -->
+<text x="550" y="108" text-anchor="middle" font-size="10" font-weight="700"
+  fill="#f472b6" letter-spacing="3" filter="url(#glowPink)">
+  ▲ INTERNET'S TRUST CRISIS ▲
+</text>
+
+<!-- ===== PROBLEM CARDS ===== -->
+<!-- Card positions: left edges at 72, 256, 440, 624, 808 (width=168, gap=16) -->
+<!-- Centers x: 156, 340, 524, 708, 892 -->
+
+<!-- Card 1: $467B Counterfeits -->
+<g class="problem-card" style="animation-delay:0s">
+  <rect x="72" y="120" width="168" height="104" rx="10"
+    fill="rgba(40,15,40,0.85)" stroke="#f472b6" stroke-width="1.2" stroke-opacity="0.7"/>
+  <rect x="72" y="120" width="168" height="4" rx="2" fill="#f472b6" opacity="0.9"/>
+  <text x="156" y="150" text-anchor="middle" font-size="26" font-weight="800" fill="#f472b6">$467B</text>
+  <text x="156" y="170" text-anchor="middle" font-size="11" font-weight="600" fill="#e2e8f0">Counterfeit Market</text>
+  <text x="156" y="187" text-anchor="middle" font-size="10" fill="#94a3b8">Amazon blocked 8M listings</text>
+  <text x="156" y="202" text-anchor="middle" font-size="10" fill="#64748b">→ $1.79T by 2030</text>
+</g>
+
+<!-- Card 2: $1T Ad Fraud -->
+<g class="problem-card" style="animation-delay:0.6s">
+  <rect x="256" y="120" width="168" height="104" rx="10"
+    fill="rgba(40,15,40,0.85)" stroke="#f472b6" stroke-width="1.2" stroke-opacity="0.55"/>
+  <rect x="256" y="120" width="168" height="4" rx="2" fill="#f87171" opacity="0.8"/>
+  <text x="340" y="150" text-anchor="middle" font-size="26" font-weight="800" fill="#f87171">$1T</text>
+  <text x="340" y="170" text-anchor="middle" font-size="11" font-weight="600" fill="#e2e8f0">Ad Fraud Market</text>
+  <text x="340" y="187" text-anchor="middle" font-size="10" fill="#94a3b8">$50B lost to fraud</text>
+  <text x="340" y="202" text-anchor="middle" font-size="10" fill="#64748b">annually</text>
+</g>
+
+<!-- Card 3: Fake Accounts -->
+<g class="problem-card" style="animation-delay:1.2s">
+  <rect x="440" y="120" width="168" height="104" rx="10"
+    fill="rgba(40,15,40,0.85)" stroke="#f472b6" stroke-width="1.2" stroke-opacity="0.55"/>
+  <rect x="440" y="120" width="168" height="4" rx="2" fill="#fb923c" opacity="0.8"/>
+  <text x="524" y="147" text-anchor="middle" font-size="17" font-weight="800" fill="#fb923c">FAKE</text>
+  <text x="524" y="165" text-anchor="middle" font-size="17" font-weight="800" fill="#fb923c">ACCOUNTS</text>
+  <text x="524" y="184" text-anchor="middle" font-size="10" fill="#94a3b8">Bots &amp; impersonators</text>
+  <text x="524" y="200" text-anchor="middle" font-size="10" fill="#64748b">flooding social platforms</text>
+</g>
+
+<!-- Card 4: AI Resumes -->
+<g class="problem-card" style="animation-delay:1.8s">
+  <rect x="624" y="120" width="168" height="104" rx="10"
+    fill="rgba(40,15,40,0.85)" stroke="#f472b6" stroke-width="1.2" stroke-opacity="0.55"/>
+  <rect x="624" y="120" width="168" height="4" rx="2" fill="#fbbf24" opacity="0.8"/>
+  <text x="708" y="147" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">AI-GENERATED</text>
+  <text x="708" y="164" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">RESUMES</text>
+  <text x="708" y="184" text-anchor="middle" font-size="10" fill="#94a3b8">$650B recruitment</text>
+  <text x="708" y="200" text-anchor="middle" font-size="10" fill="#64748b">industry at risk</text>
+</g>
+
+<!-- Card 5: Gaming Bots -->
+<g class="problem-card" style="animation-delay:2.4s">
+  <rect x="808" y="120" width="168" height="104" rx="10"
+    fill="rgba(40,15,40,0.85)" stroke="#f472b6" stroke-width="1.2" stroke-opacity="0.55"/>
+  <rect x="808" y="120" width="168" height="4" rx="2" fill="#a78bfa" opacity="0.8"/>
+  <text x="892" y="150" text-anchor="middle" font-size="26" font-weight="800" fill="#a78bfa">BOTS</text>
+  <text x="892" y="170" text-anchor="middle" font-size="11" font-weight="600" fill="#e2e8f0">Gaming Cheaters</text>
+  <text x="892" y="187" text-anchor="middle" font-size="10" fill="#94a3b8">$282B gaming market</text>
+  <text x="892" y="202" text-anchor="middle" font-size="10" fill="#64748b">compromised by bots</text>
+</g>
+
+<!-- ===== CONVERGING PATHS (hidden path definitions) ===== -->
+<defs>
+  <path id="pc1" d="M156,224 L550,302"/>
+  <path id="pc2" d="M340,224 L550,302"/>
+  <path id="pc3" d="M524,224 L550,302"/>
+  <path id="pc4" d="M708,224 L550,302"/>
+  <path id="pc5" d="M892,224 L550,302"/>
+</defs>
+
+<!-- Static converging lines -->
+<line x1="156" y1="224" x2="550" y2="302" stroke="#f472b6" stroke-width="1" stroke-opacity="0.2" marker-end="url(#arrPink)"/>
+<line x1="340" y1="224" x2="550" y2="302" stroke="#f472b6" stroke-width="1" stroke-opacity="0.2" marker-end="url(#arrPink)"/>
+<line x1="524" y1="224" x2="550" y2="302" stroke="#f472b6" stroke-width="1" stroke-opacity="0.3" marker-end="url(#arrPink)"/>
+<line x1="708" y1="224" x2="550" y2="302" stroke="#f472b6" stroke-width="1" stroke-opacity="0.2" marker-end="url(#arrPink)"/>
+<line x1="892" y1="224" x2="550" y2="302" stroke="#f472b6" stroke-width="1" stroke-opacity="0.2" marker-end="url(#arrPink)"/>
+
+<!-- Animated dots: wave 1 -->
+<circle r="4" fill="#f472b6" opacity="0.9">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="0s"><mpath href="#pc1"/></animateMotion>
+</circle>
+<circle r="4" fill="#f472b6" opacity="0.9">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="0.3s"><mpath href="#pc2"/></animateMotion>
+</circle>
+<circle r="4" fill="#f472b6" opacity="0.9">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="0.6s"><mpath href="#pc3"/></animateMotion>
+</circle>
+<circle r="4" fill="#f472b6" opacity="0.9">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="0.9s"><mpath href="#pc4"/></animateMotion>
+</circle>
+<circle r="4" fill="#f472b6" opacity="0.9">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="1.2s"><mpath href="#pc5"/></animateMotion>
+</circle>
+
+<!-- Animated dots: wave 2 (smaller, offset) -->
+<circle r="2.5" fill="#f472b6" opacity="0.55">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="0.8s"><mpath href="#pc1"/></animateMotion>
+</circle>
+<circle r="2.5" fill="#f472b6" opacity="0.55">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="1.1s"><mpath href="#pc2"/></animateMotion>
+</circle>
+<circle r="2.5" fill="#f472b6" opacity="0.55">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="1.4s"><mpath href="#pc3"/></animateMotion>
+</circle>
+<circle r="2.5" fill="#f472b6" opacity="0.55">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="1.7s"><mpath href="#pc4"/></animateMotion>
+</circle>
+<circle r="2.5" fill="#f472b6" opacity="0.55">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="2.0s"><mpath href="#pc5"/></animateMotion>
+</circle>
+
+<!-- ===== XION CENTRAL BLOCK ===== -->
+<!-- Outer glow border -->
+<rect x="148" y="300" width="804" height="166" rx="18" fill="none"
+  stroke="url(#titleGrad)" stroke-width="2.5" class="xion-outer" filter="url(#glowXion)"/>
+<!-- Inner fill -->
+<rect x="151" y="303" width="798" height="160" rx="16" fill="url(#xionGrad)"/>
+
+<!-- XION shield mark -->
+<g transform="translate(220, 353)">
+  <polygon points="0,-26 22,-13 22,13 0,26 -22,13 -22,-13"
+    fill="rgba(96,165,250,0.12)" stroke="#60a5fa" stroke-width="1.8" stroke-opacity="0.8"/>
+  <text x="0" y="7" text-anchor="middle" font-size="16" font-weight="700" fill="#60a5fa" filter="url(#glowBlue)">✓</text>
+</g>
+
+<!-- XION main label -->
+<text x="550" y="348" text-anchor="middle" font-size="32" font-weight="800"
+  fill="url(#titleGrad)" filter="url(#glowBlue)">XION</text>
+<text x="550" y="368" text-anchor="middle" font-size="11.5" fill="#93c5fd" letter-spacing="3">
+  VERIFICATION ENGINE
+</text>
+
+<!-- Inner horizontal divider -->
+<line x1="185" y1="380" x2="915" y2="380" stroke="#2d3b6b" stroke-width="1" opacity="0.7"/>
+
+<!-- Partner badges inside XION -->
+<!-- AWS -->
+<rect x="188" y="388" width="188" height="64" rx="8"
+  fill="rgba(255,255,255,0.04)" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.45"/>
+<text x="282" y="408" text-anchor="middle" font-size="9.5" font-weight="600" fill="#93c5fd" letter-spacing="1.5">PARTNER</text>
+<text x="282" y="428" text-anchor="middle" font-size="18" font-weight="800" fill="#60a5fa">AWS</text>
+<text x="282" y="444" text-anchor="middle" font-size="9" fill="#64748b">Anti-counterfeit · E-commerce</text>
+
+<!-- Fireblocks -->
+<rect x="456" y="388" width="188" height="64" rx="8"
+  fill="rgba(255,255,255,0.04)" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.45"/>
+<text x="550" y="408" text-anchor="middle" font-size="9.5" font-weight="600" fill="#c4b5fd" letter-spacing="1.5">INTEGRATION</text>
+<text x="550" y="428" text-anchor="middle" font-size="13" font-weight="700" fill="#a78bfa">FIREBLOCKS</text>
+<text x="550" y="444" text-anchor="middle" font-size="9" fill="#64748b">$10T+ secured · 2,400+ institutions</text>
+
+<!-- EarnOS -->
+<rect x="724" y="388" width="188" height="64" rx="8"
+  fill="rgba(255,255,255,0.04)" stroke="#34d399" stroke-width="1" stroke-opacity="0.45"/>
+<text x="818" y="408" text-anchor="middle" font-size="9.5" font-weight="600" fill="#6ee7b7" letter-spacing="1.5">PLATFORM</text>
+<text x="818" y="428" text-anchor="middle" font-size="18" font-weight="800" fill="#34d399">EarnOS</text>
+<text x="818" y="444" text-anchor="middle" font-size="9" fill="#64748b">Uber · Nike · Samsung · BMW</text>
+
+<!-- MiCA badge -->
+<g class="badge" filter="url(#glowPink)">
+  <rect x="435" y="500" width="230" height="24" rx="11"
+    fill="rgba(244,114,182,0.12)" stroke="#f472b6" stroke-width="1"/>
+  <text x="550" y="515" text-anchor="middle" font-size="9.5" font-weight="700" fill="#f472b6" letter-spacing="1.5">
+    ✦ FIRST MiCA-COMPLIANT BLOCKCHAIN ✦
+  </text>
+</g>
+
+<!-- ===== DIVERGING PATHS (hidden) ===== -->
+<defs>
+  <path id="pd1" d="M240,463 L186,558"/>
+  <path id="pd2" d="M430,463 L429,558"/>
+  <path id="pd3" d="M670,463 L671,558"/>
+  <path id="pd4" d="M860,463 L914,558"/>
+</defs>
+
+<!-- Static diverging lines -->
+<line x1="240" y1="463" x2="186" y2="558" stroke="#34d399" stroke-width="1" stroke-opacity="0.25" marker-end="url(#arrGreen)"/>
+<line x1="430" y1="463" x2="429" y2="558" stroke="#34d399" stroke-width="1" stroke-opacity="0.3" marker-end="url(#arrGreen)"/>
+<line x1="670" y1="463" x2="671" y2="558" stroke="#34d399" stroke-width="1" stroke-opacity="0.3" marker-end="url(#arrGreen)"/>
+<line x1="860" y1="463" x2="914" y2="558" stroke="#34d399" stroke-width="1" stroke-opacity="0.25" marker-end="url(#arrGreen)"/>
+
+<!-- Animated dots diverging: wave 1 -->
+<circle r="4" fill="#34d399" opacity="0.9">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="0s"><mpath href="#pd1"/></animateMotion>
+</circle>
+<circle r="4" fill="#34d399" opacity="0.9">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="0.4s"><mpath href="#pd2"/></animateMotion>
+</circle>
+<circle r="4" fill="#34d399" opacity="0.9">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="0.8s"><mpath href="#pd3"/></animateMotion>
+</circle>
+<circle r="4" fill="#34d399" opacity="0.9">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="1.2s"><mpath href="#pd4"/></animateMotion>
+</circle>
+
+<!-- Animated dots diverging: wave 2 -->
+<circle r="2.5" fill="#34d399" opacity="0.55">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="0.8s"><mpath href="#pd1"/></animateMotion>
+</circle>
+<circle r="2.5" fill="#34d399" opacity="0.55">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="1.2s"><mpath href="#pd2"/></animateMotion>
+</circle>
+<circle r="2.5" fill="#34d399" opacity="0.55">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="1.6s"><mpath href="#pd3"/></animateMotion>
+</circle>
+<circle r="2.5" fill="#34d399" opacity="0.55">
+  <animateMotion dur="1.6s" repeatCount="indefinite" begin="2.0s"><mpath href="#pd4"/></animateMotion>
+</circle>
+
+<!-- ===== SECTION LABEL: RESULTS ===== -->
+<text x="550" y="550" text-anchor="middle" font-size="10" font-weight="700"
+  fill="#34d399" letter-spacing="3" filter="url(#glowGreen)">
+  ▼ VERIFIED RESULTS ▼
+</text>
+
+<!-- ===== RESULT CARDS ===== -->
+<!-- 4 cards: x=70, 316, 562, 808 (width=220, gap=26) -->
+<!-- Centers x: 180, 426, 672, 918 -->
+
+<!-- Card 1: 200K+ Users -->
+<g class="result-card" style="animation-delay:0.3s">
+  <rect x="70" y="558" width="220" height="118" rx="10"
+    fill="url(#resultGrad)" stroke="#34d399" stroke-width="1.2" stroke-opacity="0.65"/>
+  <rect x="70" y="558" width="220" height="4" rx="2" fill="#34d399" opacity="0.85"/>
+  <text x="180" y="590" text-anchor="middle" font-size="28" font-weight="800" fill="#34d399"
+    filter="url(#glowGreen)">200K+</text>
+  <text x="180" y="610" text-anchor="middle" font-size="11.5" font-weight="600" fill="#e2e8f0">Verified Users</text>
+  <text x="180" y="628" text-anchor="middle" font-size="10" fill="#94a3b8">EarnOS launch event</text>
+  <text x="180" y="644" text-anchor="middle" font-size="10" fill="#64748b">in a single campaign</text>
+  <text x="180" y="663" text-anchor="middle" font-size="9" fill="#34d399">✦ Real humans, on-chain verified</text>
+</g>
+
+<!-- Card 2: 1.3M+ Interactions -->
+<g class="result-card" style="animation-delay:0.6s">
+  <rect x="316" y="558" width="220" height="118" rx="10"
+    fill="url(#resultGrad)" stroke="#34d399" stroke-width="1.2" stroke-opacity="0.55"/>
+  <rect x="316" y="558" width="220" height="4" rx="2" fill="#6ee7b7" opacity="0.8"/>
+  <text x="426" y="590" text-anchor="middle" font-size="24" font-weight="800" fill="#6ee7b7"
+    filter="url(#glowGreen)">1,300,000+</text>
+  <text x="426" y="610" text-anchor="middle" font-size="11.5" font-weight="600" fill="#e2e8f0">Brand Interactions</text>
+  <text x="426" y="628" text-anchor="middle" font-size="10" fill="#94a3b8">AR, social, ads — all verified</text>
+  <text x="426" y="644" text-anchor="middle" font-size="10" fill="#64748b">unique engagements</text>
+  <text x="426" y="663" text-anchor="middle" font-size="9" fill="#34d399">✦ No bots, no fake clicks</text>
+</g>
+
+<!-- Card 3: 150+ Brands -->
+<g class="result-card" style="animation-delay:0.9s">
+  <rect x="562" y="558" width="220" height="118" rx="10"
+    fill="url(#resultGrad)" stroke="#34d399" stroke-width="1.2" stroke-opacity="0.55"/>
+  <rect x="562" y="558" width="220" height="4" rx="2" fill="#a7f3d0" opacity="0.7"/>
+  <text x="672" y="590" text-anchor="middle" font-size="28" font-weight="800" fill="#a7f3d0"
+    filter="url(#glowGreen)">150+</text>
+  <text x="672" y="610" text-anchor="middle" font-size="11.5" font-weight="600" fill="#e2e8f0">Brand Partners</text>
+  <text x="672" y="628" text-anchor="middle" font-size="10" fill="#94a3b8">Uber · Nike · BMW</text>
+  <text x="672" y="644" text-anchor="middle" font-size="10" fill="#64748b">Samsung · The North Face</text>
+  <text x="672" y="663" text-anchor="middle" font-size="9" fill="#34d399">✦ Fortune 500 clients</text>
+</g>
+
+<!-- Card 4: Uber ↑ Spend -->
+<g class="result-card" style="animation-delay:1.2s">
+  <rect x="808" y="558" width="220" height="118" rx="10"
+    fill="url(#resultGrad)" stroke="#34d399" stroke-width="1.2" stroke-opacity="0.55"/>
+  <rect x="808" y="558" width="220" height="4" rx="2" fill="#34d399" opacity="0.85"/>
+  <text x="918" y="584" text-anchor="middle" font-size="22" font-weight="800" fill="#34d399"
+    filter="url(#glowGreen)">UBER</text>
+  <text x="918" y="604" text-anchor="middle" font-size="18" font-weight="700" fill="#6ee7b7">↑ Spend</text>
+  <text x="918" y="624" text-anchor="middle" font-size="11" font-weight="600" fill="#e2e8f0">"Substantially increased</text>
+  <text x="918" y="640" text-anchor="middle" font-size="11" font-weight="600" fill="#e2e8f0">planned spending"</text>
+  <text x="918" y="663" text-anchor="middle" font-size="9" fill="#34d399">✦ After seeing real results</text>
+</g>
+
+<!-- ===== BOTTOM STATS BAR ===== -->
+<rect x="70" y="710" width="960" height="80" rx="12" fill="url(#statGrad)"
+  stroke="url(#titleGrad)" stroke-width="1" stroke-opacity="0.5"/>
+
+<!-- Stat 1 -->
+<text x="210" y="742" text-anchor="middle" font-size="24" font-weight="800"
+  fill="url(#titleGrad)" filter="url(#glowBlue)">67M+</text>
+<text x="210" y="762" text-anchor="middle" font-size="10.5" fill="#94a3b8">Users Engaged</text>
+<text x="210" y="777" text-anchor="middle" font-size="9" fill="#64748b">across all platforms</text>
+
+<!-- Divider -->
+<line x1="380" y1="720" x2="380" y2="780" stroke="#2d3b6b" stroke-width="1"/>
+
+<!-- Stat 2 -->
+<text x="550" y="742" text-anchor="middle" font-size="24" font-weight="800"
+  fill="url(#titleGrad)" filter="url(#glowBlue)">$36M+</text>
+<text x="550" y="762" text-anchor="middle" font-size="10.5" fill="#94a3b8">Total Raised</text>
+<text x="550" y="777" text-anchor="middle" font-size="9" fill="#64748b">Multicoin · Circle · Animoca</text>
+
+<!-- Divider -->
+<line x1="720" y1="720" x2="720" y2="780" stroke="#2d3b6b" stroke-width="1"/>
+
+<!-- Stat 3 -->
+<text x="890" y="742" text-anchor="middle" font-size="24" font-weight="800"
+  fill="url(#titleGrad)" filter="url(#glowBlue)">NYSE</text>
+<text x="890" y="762" text-anchor="middle" font-size="10.5" fill="#94a3b8">Roadmap Launch</text>
+<text x="890" y="777" text-anchor="middle" font-size="9" fill="#64748b">First blockchain at NYSE</text>
+
+<!-- ===== BOTTOM TAGLINE ===== -->
+<text x="550" y="834" text-anchor="middle" font-size="11" fill="#475569" letter-spacing="1">
+  In a digital world of lies and broken trust — XION is building an Internet where truth is verifiable.
+</text>
+<text x="550" y="855" text-anchor="middle" font-size="10" fill="#334155" letter-spacing="2">
+  @burnt_xion · xion.burnt.com
+</text>
+
+</svg>
